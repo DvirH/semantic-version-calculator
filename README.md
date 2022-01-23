@@ -11,7 +11,7 @@ Create a js file with the following code
 ````
 const sm = require('semantic-version-calculator')
 sm().then(v => {
-  console.log(v)
+    console.log(`the next release version is: ${v} 🚀`)
 })
 ````
 
