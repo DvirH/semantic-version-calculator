@@ -6,8 +6,8 @@ module.exports = async function getVersion() {
         const startVersion = '1.0.0'
         const segments = startVersion.split('.')
         const majorRegex = /.+!:.+'/gi
-        const minorRegex = /feat!?:.+/gi
-        const patchRegex = /fix!?:.+/gi
+        const minorRegex = /feat(\([a-zA-Z]+\))?!?:.+/gi
+        const patchRegex = /fix(\([a-zA-Z]+\))?!?:.+/gi
 
         const version = {
           major: segments[0],
