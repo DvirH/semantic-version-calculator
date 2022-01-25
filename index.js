@@ -5,7 +5,7 @@ module.exports = async function getVersion() {
       require('child_process').exec('git rev-list HEAD --format=%s', function (err, stdout) {
         const startVersion = '1.0.0'
         const segments = startVersion.split('.')
-        const majorRegex = /.+!:.+'/gi
+        const majorRegex = /.+!:.+/gi
         const minorRegex = /feat(\([a-zA-Z]+\))?!?:.+/gi
         const patchRegex = /fix(\([a-zA-Z]+\))?!?:.+/gi
 
@@ -20,10 +20,10 @@ module.exports = async function getVersion() {
           if (majorRegex.test(c)) {
             version.major++
           }
-          if (minorRegex.test(c)) {
+          else if (minorRegex.test(c)) {
             version.minor++
           }
-          if (patchRegex.test(c)) {
+          else if (patchRegex.test(c)) {
             version.patch++
           }
         })
